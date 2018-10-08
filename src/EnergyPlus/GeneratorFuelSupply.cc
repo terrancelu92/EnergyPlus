@@ -212,6 +212,8 @@ namespace GeneratorFuelSupply {
                 if (UtilityRoutines::SameString(AlphArray(6), "GaseousConstituents")) {
                     FuelSupply(FuelSupNum).FuelTypeMode = fuelModeGaseousConstituents;
                 } else if (UtilityRoutines::SameString(AlphArray(6), "LiquidGeneric")) {
+                    ShowSevereError("LiquidGeneric simulations have known issues and are currently disabled");
+                    ErrorsFound = true;
                     FuelSupply(FuelSupNum).FuelTypeMode = fuelModeGenericLiquid;
                 } else {
                     ShowSevereError("Invalid, " + cAlphaFieldNames(6) + " = " + AlphArray(6));
